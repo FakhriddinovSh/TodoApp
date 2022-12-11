@@ -43,13 +43,14 @@ function renderTodo(array, ullist){
     
     array.forEach(obj =>{
         let elItem = document.createElement("li")
-        elItem.classList.add("form-item")
+        elItem.classList.add("form-item", "position-relative")
         let elDesc = document.createElement("p")
         elDesc.textContent = obj.user_name;
         elDesc.classList.add("fw-bold", "ms-3")
         let deleteButton = document.createElement("button")
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("btn", "btn-danger");
+        deleteButton.style.marginRight = "60px"
         deleteButton.dataset.id = obj.id;        
         let elCheckboxInput = document.createElement("input")
         elCheckboxInput.type = "checkbox";
@@ -57,7 +58,7 @@ function renderTodo(array, ullist){
         elCheckboxInput.dataset.id = obj.id
         let elEdit = document.createElement("button")
         elEdit.dataset.id = obj.id
-        elEdit.classList.add("btn", "btn-success", "text")
+        elEdit.classList.add("btn", "btn-success", "text", "position-absolute", "edit-btn-style")
         elEdit.textContent = "Edit"
         if(obj.isComplete == true){
             elCheckboxInput.checked = true;
@@ -103,7 +104,7 @@ elList.addEventListener("click", function(evt){
 
 function counterCompletance(){
     countAll.textContent = arr.length
-
+ 
     let completeArr = arr.filter(obj => obj.isComplete == true)
     complete.textContent = completeArr.length;
 
@@ -152,3 +153,6 @@ formSearch.addEventListener("keyup", function(evt){
     })
     renderTodo(searchItem, elList)
 })
+
+// Speech recognition
+

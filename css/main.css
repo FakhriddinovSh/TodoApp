@@ -65,3 +65,9 @@ body{
     position: fixed;
     left: 20%;
 }
+
+.edit-btn-style{
+    float: right;
+    right: 0;
+    top: 9px;
+}
